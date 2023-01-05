@@ -9,11 +9,11 @@ import ClaimList from './components/ClaimList/ClaimList'
 function App() {
 
   return (
-    <>
+    <div className="container mt-5">
       <Header />
       <Form />
       <ClaimList />
-    </>
+    </div>
     )
 }
 
