@@ -11,8 +11,10 @@ function App() {
   return (
     <div className="container mt-5">
       <Header />
-      <Form />
-      <ClaimList />
+      <div className="mt-12 md:flex">
+        <Form />
+        <ClaimList />
+      </div>
     </div>
     )
 }
