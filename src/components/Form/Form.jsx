@@ -1,6 +1,23 @@
 import { useState, useEffect } from 'react'
 
 const Form = () => {
+  const [nombre, setNombre] = useState('')
+  const [titulo, setTitulo] = useState('')
+  const [fecha, setFecha] = useState('')
+  const [informacion, setInformacion] = useState('')
+  const [error, setError] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    // validacion formulario
+    if ([nombre, titulo, fecha, informacion].includes('')){
+      setError(true)
+      return
+    } 
+    setError(false)
+  }
+
   return (
     <div className="md:w-1/2 lg:w-2/5">
       <h2 className="font-black text-xl text-center">Sistema de reclamos</h2>
@@ -8,7 +25,14 @@ const Form = () => {
         Añade reclamos y <span className="underline font-bold">administralos</span>
       </p>
 
-      <form className="mt-10 mb-10 mx-10 bg-slate-300 py-6 px-6 border rounded w-full">
+      <form className="mt-10 mb-10 mx-10 bg-slate-300 py-6 px-6 border rounded w-full"
+        onSubmit={handleSubmit}>
+          {error && (
+            <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-5" role="alert">
+              <p className="font-bold">Error</p>
+              <p>Todos los campos son obligatorios</p>
+            </div>
+          )}
         <div className="mb-5">
           <label className="block text-teal-600 text-sm font-bold mb-2" htmlFor="name">
             Nombre completo
@@ -18,6 +42,8 @@ const Form = () => {
             id="name"
             type="text"
             placeholder="Nombre"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
           />
           <label className="block text-teal-600 text-sm font-bold mb-2 mt-3" htmlFor="Título reclamo">
             Título reclamo
@@ -27,6 +53,8 @@ const Form = () => {
             id="Título reclamo"
             type="text"
             placeholder="Título reclamo"
+            value={titulo}
+            onChange={(e) => setTitulo(e.target.value)}
           />
         </div>
         <label className='block text-teal-600 text-sm font-bold mb-2 mt-3' htmlFor="Fecha">
@@ -36,6 +64,9 @@ const Form = () => {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="Fecha"
           type="date"
+          placeholder="Fecha"
+          value={fecha}
+          onChange={(e) => setFecha(e.target.value)}
         />
         <label className='block text-teal-600 text-sm font-bold mb-2 mt-3' htmlFor="Información">
           Información
@@ -45,6 +76,8 @@ const Form = () => {
           id="Información"
           type="text"
           placeholder="Información"
+          value={informacion}
+          onChange={(e) => setInformacion(e.target.value)}
         />
           <input
           type="submit"
