@@ -1,2 +1,7 @@
-# reclamos-react
-Una aplicación simple para tomar reclamos hecha en React
+# App Reclamos
+
+## Information
+
+## Set up
+
+## Screenshots
