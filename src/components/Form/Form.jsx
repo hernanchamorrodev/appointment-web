@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
-const Form = () => {
+const Form = ({ complaints, setComplaints }) => {
+  //TODO Añadir id
   const [nombre, setNombre] = useState('')
   const [titulo, setTitulo] = useState('')
   const [fecha, setFecha] = useState('')
@@ -16,6 +17,23 @@ const Form = () => {
       return
     } 
     setError(false)
+
+    const objComplaint = {
+      nombre,
+      titulo,
+      fecha,
+      informacion,
+    }
+
+    setComplaints([ ...complaints, objComplaint ])
+
+    // reiniciar el form
+    setNombre('')
+    setTitulo('')
+    setFecha('')
+    setInformacion('')
+
+    
   }
 
   return (

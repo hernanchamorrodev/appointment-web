@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Claim = () => {
+const Complaint = () => {
   return (
     <div className="mt-10 mb-10 mx-20 bg-slate-300 py-6 px-6 border rounded flex flex-col h-auto">
         <div className="flex flex-col justify-between">
@@ -27,4 +27,4 @@ const Claim = () => {
   )
 }
 
-export default Claim
+export default Complaint

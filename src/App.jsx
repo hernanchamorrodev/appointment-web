@@ -1,19 +1,23 @@
-import { useState, } from 'react'
+import { useState } from 'react'
 
 import './App.css'
 
 import Header from './components/Header/Header'
 import Form from './components/Form/Form'
-import ClaimList from './components/ClaimList/ClaimList'
+import ComplaintsList from './components/ComplaintsList/ComplaintsList'
 
 function App() {
+  const [complaints, setComplaints] = useState([])
 
   return (
     <div>
       <Header />
       <div className="mt-12 md:flex">
-        <Form />
-        <ClaimList />
+        <Form 
+          complaints={complaints}
+          setComplaints={setComplaints}
+        />
+        <ComplaintsList />
       </div>
     </div>
     )
