@@ -9,7 +9,7 @@ import ClaimList from './components/ClaimList/ClaimList'
 function App() {
 
   return (
-    <div className="container mt-5">
+    <div>
       <Header />
       <div className="mt-12 md:flex">
         <Form />
