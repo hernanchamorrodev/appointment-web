@@ -18,6 +18,7 @@ function App() {
           setComplaints={setComplaints}
         />
         <ComplaintsList />
+          complaints={complaints}
       </div>
     </div>
     )

@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
+
 import Error from '../Error/Error'
+
+import generateId from '../../utils/generateId'
 
 const Form = ({ complaints, setComplaints }) => {
   //TODO Añadir id
@@ -20,6 +23,7 @@ const Form = ({ complaints, setComplaints }) => {
     setError(false)
 
     const objComplaint = {
+      id: generateId(),
       nombre,
       titulo,
       fecha,
@@ -47,7 +51,7 @@ const Form = ({ complaints, setComplaints }) => {
       <form className="mt-10 mb-10 mx-10 bg-slate-300 py-6 px-6 border rounded w-full"
         onSubmit={handleSubmit}>
           {error && (
-            <Error>Todos los campos son obligatorios</Error>
+            <Error message="Todos los campos son obligatorios"/>
           )}
         <div className="mb-5">
           <label className="block text-teal-600 text-sm font-bold mb-2" htmlFor="name">
