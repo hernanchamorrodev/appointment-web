@@ -1,13 +1,14 @@
 import React from 'react'
 
-const Complaint = ({complaint, index}) => {
+const Complaint = ({complaint, key}) => {
+  console.log(complaint, key)
 
   const { titulo, fecha, nombre, informacion } = complaint
 
   return (
     <div className="mt-10 mb-10 mx-20 bg-slate-300 py-6 px-6 border rounded flex flex-col h-auto">
         <div className="flex flex-col justify-between">
-          <h3 className="font-bold text-lg text-center">{titulo} - {index}</h3>
+          <h3 className="font-bold text-lg text-center">{titulo} - {key}</h3>
           <p>
             <span className="font-bold">Fecha:</span> {fecha}
           </p>
